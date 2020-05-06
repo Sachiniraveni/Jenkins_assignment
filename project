@@ -1,0 +1,36 @@
+GIT BASH :
+Create a local repository in git and add files in it
+Create a branch named "dev1" and add some content to its files
+Push the repo in github
+
+
+Job1 execute shell :- 
+
+Sudo cp -v -r -f *  /work
+
+if sudo docker ps | grep prod
+then
+echo "already running"
+sudo docker run -d -i -t -p 8086:80 -v /work:/usr/local/apache2/htdocs --name prod1 httpd
+fi
+
+
+Job 2 execute shell :-
+
+Sudo cp -v -r -f * /test
+
+
+if sudo docker ps | grep testing
+then
+echo "already running"
+else
+sudo docker run -dit -p 8088:80 -v /test: /usr/local/apache2/htdocs/ --name testing1 httpd
+fi
+
+Job3:-
+
+cd /test
+Sudo cp -v -r -f /test* /work
+sudo git commit . -m "committed" 
+
+sudo git push https://YOUR_GITHUB_USER_ID:YOUR_GITHUB_PASSWORD@github.com/YOUR_USER_ID/REPOSITORY_NAME.git
